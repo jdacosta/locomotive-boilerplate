@@ -1,0 +1,11 @@
+// =============================================================================
+// Settings \ Context
+// =============================================================================
+
+$context:     frontend !default;
+$assets-path: "../" !default;
+
+// From TinyMCE, paths are relative to the public root
+// @if ( is_editor() ) {
+//     $assets-path: "assets/boilerplate/";
+// }

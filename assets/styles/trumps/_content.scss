@@ -1,0 +1,53 @@
+/**
+ * Trumps \ Content
+ * =============================================================================
+ */
+
+$s-content-body: if( is-editor(), ".mce-content-body", ".s-content-body" );
+
+#{$s-content-body} {
+
+	a {
+		color: $link-color;
+		text-decoration: none;
+
+		&:visited {
+			color: $link-visited-color;
+		}
+
+		&:active {
+			color: $link-active-color;
+		}
+
+		@include u-hocus {
+			text-decoration: underline;
+		}
+	}
+
+	blockquote.u-pull-left,
+	figure.u-pull-left,
+	table.u-pull-left,
+	img.u-pull-left,
+	dl.u-pull-left {
+		margin: 0.4em 1.6em 1.6em 0;
+	}
+
+	blockquote.u-pull-right,
+	figure.u-pull-right,
+	table.u-pull-right,
+	img.u-pull-right,
+	dl.u-pull-right {
+		margin: 0.4em 0 1.6em 1.6em;
+	}
+
+	blockquote.u-centered,
+	figure.u-centered,
+	table.u-centered,
+	img.u-centered,
+	dl.u-centered {
+		clear: both;
+		margin-top: 0.4em;
+		margin-bottom: 1.6em;
+	}
+
+}

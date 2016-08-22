@@ -1,0 +1,33 @@
+/**
+ * Base \ Content
+ * =============================================================================
+ */
+
+::selection {
+	background-color: $text-selection-background-color;
+	color:            $text-selection-text-color;
+	text-shadow:      none;
+}
+
+hr {
+	display:    block;
+	margin:     1em 0;
+	padding:    0;
+	height:     1px;
+	border:     0;
+	border-top: 1px solid gray;
+}
+
+mark {
+	background-color: $highlighted-background-color;
+	text-decoration:  none;
+}
+
+del {
+	background-color: $deleted-background-color;
+	text-decoration:  none;
+}
+
+ins {
+	background-color: $inserted-background-color;
+}

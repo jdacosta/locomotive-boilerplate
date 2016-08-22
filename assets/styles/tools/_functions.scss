@@ -1,14 +1,152 @@
-// ==========================================================================
-// Functions
-// ==========================================================================
-@function em($px, $base: $font-size) {
+// =============================================================================
+// Tools \ Functions
+// =============================================================================
+
+///
+/// Determine if the current context is for a WYSIWYG editor.
+///
+/// @requires {String} $context - The global context of the stylesheet.
+/// @return   {Boolean} If the $context is set to "editor".
+///
+@function is-editor()
+{
+	@return ("editor" == $context);
+}
+
+///
+/// Determine if the current context is for the front-end.
+///
+/// @requires {String} $context - The global context of the stylesheet.
+/// @return   {Boolean} If the $context is set to "frontend".
+///
+@function is-frontend()
+{
+	@return ("frontend" == $context);
+}
+
+///
+/// Removes units (px, em, etc.) from a given number.
+///
+/// @param  {Number} $value - The numeric value to strip units from.
+/// @return {Number} A unitless numeric value.
+///
+@function strip-unit($value)
+{
+	@return $value / ($value * 0 + 1);
+}
+
+///
+/// Converts the given pixel value to its EM quivalent.
+///
+/// @param  {Number} $px                     - The pixel value to convert.
+/// @param  {Number} $base [$base-font-size] - The assumed base font size.
+/// @return {Number} Scalable pixel value in EMs.
+///
+@function em($px, $base: $base-font-size)
+{
 	@return ($px / $base) * 1em;
 }
 
-@function rem($px, $base: $font-size) {
+///
+/// Converts the given pixel value to its REM quivalent.
+///
+/// @param  {Number} $px                     - The pixel value to convert.
+/// @param  {Number} $base [$base-font-size] - The assumed base font size.
+/// @return {Number} Scalable pixel value in REMs.
+///
+@function rem($px, $base: $base-font-size)
+{
 	@return ($px / $base) * 1rem;
 }
 
-@function span($fraction) {
+///
+/// Concerts the given fraction to a percentage.
+///
+/// @param  {Number} $fraction - A fraction to process.
+/// @return {Number} The fraction as a percentage.
+///
+@function span($fraction)
+{
 	@return $fraction * 100%;
+}
+
+///
+/// Checks if a list contains a value(s).
+///
+/// @link   https://github.com/thoughtbot/bourbon/blob/master/core/bourbon/validators/_contains.scss
+/// @param  {List} $list   - The list to check against.
+/// @param  {List} $values - A single value or list of values to check for.
+/// @return {Boolean}
+/// @access private
+///
+@function list-contains(
+	$list,
+	$values...
+) {
+	@each $value in $values {
+		@if type-of(index($list, $value)) != "number" {
+			@return false;
+		}
+	}
+
+	@return true;
+}
+
+///
+/// Resolve whether a rule is important or not.
+///
+/// @param  {Boolean}     $flag - Whether a rule is important (TRUE) or not (FALSE).
+/// @return {String|Null} Returns `!important` or NULL.
+///
+@function important($flag: false)
+{
+	@if ($flag == true) {
+		@return !important;
+	} @elseif ($important == false) {
+		@return null;
+	} @else {
+		@error "`#{$flag}` needs to be `true` or `false`."
+	}
+}
+
+///
+/// Builds the `src` list for an `@font-face` declaration.
+///
+/// @link https://github.com/thoughtbot/bourbon/blob/master/core/bourbon/utilities/_font-source-declaration.scss
+/// @link http://goo.gl/Ru1bKP
+///
+/// @param  {String} $font-family  - The font family name.
+/// @param  {String} $file-path    - The path to the font family.
+/// @param  {List}   $file-formats - The file formats to request.
+/// @return {List}
+///
+/// @require {function} _contains
+///
+/// @access private
+///
+@function font-source-declaration(
+	$font-family,
+	$file-path,
+	$file-formats
+) {
+	$src: ();
+
+	$formats-map: (
+		eot:   "#{$file-path}.eot?#iefix" format("embedded-opentype"),
+		woff2: "#{$file-path}.woff2" format("woff2"),
+		woff:  "#{$file-path}.woff" format("woff"),
+		ttf:   "#{$file-path}.ttf" format("truetype"),
+		svg:   "#{$file-path}.svg##{$font-family}" format("svg"),
+	);
+
+	@each $key, $values in $formats-map {
+		@if list-contains($file-formats, $key) {
+			$file-path:   nth($values, 1);
+			$font-format: nth($values, 2);
+
+			$src: append($src, "#{$assets-path}/#{$file-path}" $font-format, comma);
+		}
+	}
+
+	@return $src;
 }

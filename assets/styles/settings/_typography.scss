@@ -1,0 +1,56 @@
+// =============================================================================
+// Settings \ Typography
+// =============================================================================
+
+// Typefaces
+// =============================================================================
+
+$font-open-sans:            "Open Sans";
+$font-open-sans-condensed:  "Open Sans Condensed";
+
+$font-open-sans-stack:            $font-open-sans, Arial, Helvetica, sans-serif;
+$font-open-sans-condensed-stack:  $font-open-sans-condensed, Impact, "Franklin Gothic Bold", sans-serif;
+
+// Basics
+// =============================================================================
+
+$base-color:        $mine-shaft;
+$base-font-size:    16px;
+$base-font-family:  $font-open-sans-stack;
+$base-line-height:  1.6;
+
+// Weights
+// =============================================================================
+
+$light:     300;
+$normal:    400;
+$medium:    500;
+$semibold:  500;
+$bold:      700;
+$bolder:    900;
+
+// Headings
+// =============================================================================
+
+$heading-line-height: 1.2;
+
+$heading-1: 48px;
+$heading-2: 32px;
+$heading-3: 24px;
+$heading-4: 20px;
+$heading-5: 16px;
+$heading-6: 13px;
+
+// $heading-giga: 100px;
+// $heading-kilo: 80px;
+// $heading-mega: 60px;
+
+// $heading-milli: 11px;
+// $heading-micro: 9px;
+// $heading-nano:  7px;
+
+// Quotes
+// =============================================================================
+
+$open-quote:    null;
+$close-quote:   null;

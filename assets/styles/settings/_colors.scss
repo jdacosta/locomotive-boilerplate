@@ -1,0 +1,55 @@
+// =============================================================================
+// Settings \ Colors
+// =============================================================================
+
+// Palette
+// =============================================================================
+
+$white:          #FFFFFF;
+$black:          #000000;
+
+$mine-shaft:     #222222;
+$dodger-blue:    #3297FD;
+$cobalt:         #0645AD;
+$navy-blue:      #0B0080;
+$orange:         #FAA700;
+$guardsman-red:  #BA0000;
+$shalimar:       #FFF9C0;
+$pippin:         #FDD;
+$mint-green:     #9F9;
+
+
+// Brand Colors
+// =============================================================================
+
+
+
+// Aliases
+// =============================================================================
+
+$blue:  $cobalt         !default;
+$red:   $guardsman-red  !default;
+
+// Specific
+// =============================================================================
+
+$text-selection-text-color:        $white             !default;
+$text-selection-background-color:  $dodger-blue       !default;
+
+$highlighted-text-color:           null               !default;
+$highlighted-background-color:     $shalimar          !default;
+
+$deleted-text-color:               null               !default;
+$deleted-background-color:         $pippin            !default;
+
+$inserted-text-color:              null               !default;
+$inserted-background-color:        $mint-green        !default;
+
+$link-idle-color:                  $cobalt            !default;
+$link-visited-color:               $navy-blue         !default;
+$link-enter-color:                 $cobalt            !default;
+$link-active-color:                $orange            !default;
+
+$link-color:                       $link-idle-color   !default;
+$link-focus-color:                 $link-enter-color  !default;
+$link-hover-color:                 $link-enter-color  !default;

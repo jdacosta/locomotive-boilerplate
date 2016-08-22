@@ -1,3 +1,40 @@
-// ==========================================================================
-// Fonts
-// ==========================================================================
+/**
+ * Base \ Fonts
+ * =============================================================================
+ */
+
+@include font-face(
+	$font-open-sans,
+	"fonts/open-sans/regular",
+	("eot", "woff", "ttf", "svg")
+) {
+	font-style:  normal;
+	font-weight: 300;
+}
+
+@include font-face(
+	$font-open-sans,
+	"fonts/open-sans/regular",
+	("eot", "woff", "ttf", "svg")
+) {
+	font-style:  normal;
+	font-weight: 400;
+}
+
+@include font-face(
+	$font-open-sans,
+	"fonts/open-sans/regular",
+	("eot", "woff", "ttf", "svg")
+) {
+	font-style:  italic;
+	font-weight: 400;
+}
+
+@include font-face(
+	$font-open-sans,
+	"fonts/open-sans/regular",
+	("eot", "woff", "ttf", "svg")
+) {
+	font-style:  normal;
+	font-weight: 700;
+}

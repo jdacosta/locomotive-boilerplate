@@ -1,11 +1,16 @@
-// ==========================================================================
-// Trumps
-// ==========================================================================
-.u-left {
+/**
+ * Trumps
+ * =============================================================================
+ */
+
+// Alignment
+// =============================================================================
+
+.u-pull-left {
 	float: left !important;
 }
 
-.u-right {
+.u-pull-right {
 	float: right !important;
 }
 
@@ -21,14 +26,166 @@
 	text-align: center !important;
 }
 
-// States
-// ==========================================================================
-.is-visible {
-	visibility: visible !important;
-	opacity: 1 !important;
+.u-align-justify {
+	text-align: justify !important;
 }
 
-.is-hidden {
+.u-full-width {
+	width: 100%;
+}
+
+.u-centered {
+	display:      block;
+	margin-right: auto;
+	margin-left:  auto;
+}
+
+
+// Decorative
+// =============================================================================
+
+.u-underline {
+	text-decoration: underline;
+}
+
+.u-truncate {
+	@include u-truncate;
+}
+
+
+// Layout
+// =============================================================================
+
+.u-vertical-center {
+	@include o-vertical-center;
+}
+
+.u-clearfix {
+	@include u-clearfix;
+}
+
+
+
+// States
+// =============================================================================
+
+.u-disable-hover,
+.u-disable-hover * {
+	pointer-events: none !important;
+}
+
+
+// Visibility
+// =============================================================================
+
+// .u-block {
+//  display: block !important;
+// }
+
+// /**
+//  * 1. Fix for Firefox bug: an image styled `max-width:100%` within an
+//  * inline-block will display at its default size, and not limit its width to
+//  * 100% of an ancestral container.
+//  */
+
+// .u-inline-block {
+//  display: inline-block !important;
+//  max-width: 100%; /* 1 */
+// }
+
+// .u-inline {
+//  display: inline !important;
+// }
+
+.u-hidden {
+	display: none !important;
+}
+
+// .u-table {
+//  display: table !important;
+// }
+
+// .u-tableCell {
+//  display: table-cell !important;
+// }
+
+// .u-tableRow {
+//  display: table-row !important;
+// }
+
+/**
+ * Control visibility without affecting flow.
+ */
+
+.is-visible {
+	visibility: visible !important;
+	opacity:    1 !important;
+}
+
+.is-invisible {
 	visibility: hidden !important;
-	opacity: 0 !important;
+	opacity:    0 !important;
+}
+
+/**
+ * Completely remove from the flow and screen readers.
+ */
+
+.is-hidden,
+.has-js .hide-if-js,
+.has-no-js .hide-if-no-js {
+	@include u-hidden;
+}
+
+@media print {
+
+	.is-hidden\@print {
+		@include u-hidden;
+	}
+
+}
+
+// .is-hidden\@to-small {
+//     @media (max-width: $to-small) {
+//         display: none;
+//     }
+// }
+
+// /**
+//  * Display a hidden-by-default element.
+//  */
+
+// .is-shown {
+//  @include u-shown;
+// }
+
+// table.is-shown {
+//  display: table !important;
+// }
+
+// tr.is-shown {
+//  display: table-row !important;
+// }
+
+// td.is-shown,
+// th.is-shown {
+//  display: table-cell !important;
+// }
+
+/**
+ * Completely remove from the flow but leave available to screen readers.
+ */
+.u-screen-reader-text {
+	@include u-accessibly-hidden;
+}
+
+/*
+ * Extends the `.screen-reader-text` class to allow the element
+ * to be focusable when navigated to via the keyboard.
+ *
+ * @link https://www.drupal.org/node/897638
+ * @todo Define styles when focused.
+ */
+.u-screen-reader-text.-focusable {
+	@include u-accessibly-focusable;
 }
