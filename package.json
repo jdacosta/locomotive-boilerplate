@@ -14,23 +14,6 @@
         "babel-plugin-transform-es2015-classes": "",
         "babel-plugin-transform-export-extensions": "",
         "babelify": "",
-        "eslint-tap": "",
-        "glob": "",
-        "grunt": "",
-        "grunt-browser-sync": "",
-        "grunt-browserify": "",
-        "grunt-contrib-concat": "",
-        "grunt-contrib-cssmin": "",
-        "grunt-contrib-uglify": "",
-        "grunt-contrib-watch": "",
-        "grunt-csscomb": "",
-        "grunt-eslint": "",
-        "grunt-notify": "",
-        "grunt-phplint": "",
-        "grunt-postcss": "",
-        "grunt-sass": "",
-        "grunt-svg-sprite": "",
-        "load-grunt-config": "",
-        "postcss-banner": ""
+        "eslint-tap": ""
     }
 }
